@@ -1,0 +1,15 @@
+type Movie {
+  title: String
+  movieTestBase: String
+    @cypher(statement: "WITH 'Wooorking 🐈 🐈 🐈 🐈' AS value RETURN value")
+}
+
+extend type Movie {
+  movieTestExtend: String
+    @cypher(statement: "WITH 'Wooorking 🐈 🐈 🐈 🐈' AS value RETURN value")
+}
+
+extend type Query {
+  extendQuery: String
+    @cypher(statement: "WITH 'NOT WORKING 😞 😞 😞 😞' AS value RETURN value")
+}

@@ -1,17 +1,19 @@
 const { ApolloServer } = require("apollo-server");
+const { readGqlFiles } = require("./loadSchema");
+
 const {
   makeAugmentedSchema
 } = require("neo4j-graphql-js");
 const neo4j = require("neo4j-driver");
 
-// Construct a schema, using GraphQL schema language
+const AppSchema = readGqlFiles();
+
+// TODO: Add load schema and a readme to run neo4j with docker
+
+// ! typeDefs == AppSchema
 const typeDefs = `
 type Query {
   rootQuery: String @cypher(statement: "WITH 'Wooorking 🐈 🐈 🐈 🐈' AS value RETURN value")
- }
-
- extend type Query {
-  extendQuery: String @cypher(statement: "WITH 'NOT WORKING 😞 😞 😞 😞' AS value RETURN value")
  }
 
  type Movie {
@@ -22,10 +24,16 @@ type Query {
  extend type Movie {
   movieTestExtend: String @cypher(statement: "WITH 'Wooorking 🐈 🐈 🐈 🐈' AS value RETURN value")
  }
+
+ extend type Query {
+  extendQuery: String @cypher(statement: "WITH 'NOT WORKING 😞 😞 😞 😞' AS value RETURN value")
+ }
 `;
 
 // Generate executable schema with auto-generated resolvers
-const schema = makeAugmentedSchema({ typeDefs });
+const schema = makeAugmentedSchema({
+  typeDefs: AppSchema
+});
 
 // Instantiate a Neo4j database driver
 const driver = neo4j.driver(
