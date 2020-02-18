@@ -1,5 +1,7 @@
 # neo4j-graphql-bug
 
+**This repo is created for [this issue](https://github.com/neo4j-graphql/neo4j-graphql-js/issues/395) only and not for demo purpose**
+
 ## Setup
 
 - Download this realease to \$HOME/neo4j/plugins
