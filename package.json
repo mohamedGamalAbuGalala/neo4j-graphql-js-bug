@@ -13,6 +13,7 @@
   },
   "keywords": [],
   "devDependencies": {
+    "@playlyfe/gql": "^2.6.2",
     "@types/graphql": "14.0.1",
     "nodemon": "1.18.4"
   }

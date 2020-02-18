@@ -2,3 +2,9 @@ type Query {
   rootQuery: String
     @cypher(statement: "WITH 'Wooorking 🐈 🐈 🐈 🐈' AS value RETURN value")
 }
+
+type Movie {
+  title: String
+  movieTestBase: String
+    @cypher(statement: "WITH 'Wooorking 🐈 🐈 🐈 🐈' AS value RETURN value")
+}
